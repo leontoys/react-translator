@@ -97,8 +97,8 @@ function App() {
 
   return (
       <div className="card">
-        <h1>Transformers.js</h1>
-        <h2>ML-powered translation</h2>
+
+        <h1>Translate Text</h1>
 
         <div className='container'>
 
@@ -130,6 +130,8 @@ function App() {
             </div>
           })}
         </div>
+
+        <p>powered by Transformers.js</p>
 
       </div>
   )
