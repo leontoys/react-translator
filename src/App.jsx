@@ -1,10 +1,14 @@
 //added more hooks
 import { useState, useRef, useEffect } from 'react' 
 import './App.css'
+import LanguageSelector from './components/LanguageSelector'
+import Progress from './components/Progress'
 
 function App() {
   //for worker object - create reference
   const worker = useRef(null)
+  //model loading - progress indicators
+  const [ready,setReady] = useState(null)
 
   //as soon as App is mounted, get worker
   useEffect(()=>{
