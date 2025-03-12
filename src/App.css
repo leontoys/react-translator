@@ -40,3 +40,31 @@
 .read-the-docs {
   color: #888;
 }
+
+/*Custom*/
+.language-container{
+  display: flex;
+  gap : 20px;
+}
+
+.textbox-container{
+  display: flex;
+  gap : 20px;
+  justify-content: center;
+  width: 800px;
+}
+
+.textbox-container>textarea, .language-selector{
+  width: 50%;
+}
+
+.language-selector>select{
+  width: 150px;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  gap : 10px;
+  margin : 20px;
+}
