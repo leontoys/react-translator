@@ -28,7 +28,49 @@ function App() {
 
     //call back for message received
     const onMessageReceived = (e)=>{
+      console.log("event",e.data)
       //TODO
+      switch (e.data.status) {//based on the status update from worker
+        case 'initiate':
+        //model file starts loading
+          setReady(false)
+          setProgressItems(prev => [...prev,e.data])//keep appending the files info
+          break;
+
+        //update progress percentages
+        case 'progress':
+          setProgressItems(prev=>prev.map(item=>{
+            if(item.file === e.data.file){
+              return {...item, progress : e.data.progress}//update progress
+            }
+            return item
+          }))
+          break;
+
+
+        //once all files are loaded, remove the pgoress indicators
+        case 'done':
+          setProgressItems(
+            prev=>prev.filter(item=> item.file!== e.data.file))
+          break;
+
+        //pipeline is ready
+        case 'ready':
+          setReady(true)  
+          break;
+          
+        //case update
+        case 'update':
+          //from the streamer, keep updating output
+          setOutput( output + e.data.output )
+          break;
+          
+            
+        case 'complete':
+          //enable button
+          setDisabled(false)
+          break;
+      }
     }
 
     //link call back to event
