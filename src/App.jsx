@@ -39,6 +39,20 @@ function App() {
 
   }) 
 
+  //call worker to translate
+  const translate = ()=>{
+    //disable button to avoid multiple clicks
+    setDisabled(true)
+    //clear output
+    setOutput("")
+    //call worker
+    worker.current.postMessage({
+      text : input,
+      sourceLanguage : sourceLanguage,
+      targetLanguage : targetLanguage
+    })
+  }
+
   return (
       <div className="card">
         <h1>Transformers.js</h1>
@@ -61,7 +75,7 @@ function App() {
 
         </div>
 
-        <button disabled={disabled} onClick={"translate"}>Translate</button>
+        <button disabled={disabled} onClick={translate}>Translate</button>
 
         {/* Progress Indicators - for model loading  */}
         <div className='progress-bars-container'>

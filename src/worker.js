@@ -18,3 +18,10 @@ class MyTranslationPipeline{
     }
 }
 
+//add event listener for click on translate and then App sends post message
+self.addEventListener('message',async(event)=>{
+    console.log(event.data)//this is the info that comes from App
+
+    //load pipeline
+})
+
