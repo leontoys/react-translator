@@ -9,6 +9,14 @@ function App() {
   const worker = useRef(null)
   //model loading - progress indicators
   const [ready,setReady] = useState(null)
+  const [disabled,setDisabled] = useState(false)
+  const [progressItems,setProgressItems] = useState([])
+
+  //translation default languages and inputs
+  const [input,setInput] = useState('This is a demo')
+  const [sourceLanguage,setSourceLanguage] = useState('eng_Latn')
+  const [targetLanguage,setTargetLanguage] = useState('fra_Latn')
+  const [output,setOutput] = useState('')
 
   //as soon as App is mounted, get worker
   useEffect(()=>{
@@ -33,6 +41,40 @@ function App() {
 
   return (
       <div className="card">
+        <h1>Transformers.js</h1>
+        <h2>ML-powered translation</h2>
+
+        <div className='container'>
+
+          <div className='language-container'>
+            <LanguageSelector type={"Source"} defaultLanguage={"eng_Latn"} 
+            onChange={e=>setSourceLanguage(e.target.value)}
+            ></LanguageSelector>
+            <LanguageSelector type={"Target"} defaultLanguage={"fra_Latn"}
+            ></LanguageSelector>
+          </div>
+
+          <div className='textbox-container'>
+            <textarea value={input}   rows={3}  onChange={e=>setInput(e.target.value)}></textarea>
+            <textarea value={output}  rows={3}></textarea>
+          </div>
+
+        </div>
+
+        <button disabled={disabled} onClick={"translate"}>Translate</button>
+
+        {/* Progress Indicators - for model loading  */}
+        <div className='progress-bars-container'>
+          {ready === false && (
+            <label>Loading models...(run only once)</label>
+          )}
+          {progressItems.map(data=>{
+            <div key={data.file}>
+              <Progress text={data.file} percentage={data.progress}></Progress>
+            </div>
+          })}
+        </div>
+
       </div>
   )
 }

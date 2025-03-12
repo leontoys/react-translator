@@ -4,6 +4,8 @@ const LANGUAGES = {
     "Acehnese (Latin script)": "ace_Latn",
     "Afrikaans": "afr_Latn",
     //others
+    "English" : "eng_Latn",
+    "French" : "fra_Latn",
     "Zulu": "zul_Latn"
 }
 
