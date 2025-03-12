@@ -70,7 +70,7 @@ function App() {
 
           <div className='textbox-container'>
             <textarea value={input}   rows={3}  onChange={e=>setInput(e.target.value)}></textarea>
-            <textarea value={output}  rows={3}></textarea>
+            <textarea value={output}  rows={3}  readOnly></textarea>
           </div>
 
         </div>
