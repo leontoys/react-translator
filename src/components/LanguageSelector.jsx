@@ -4,8 +4,10 @@ const LANGUAGES = {
     "Afrikaans": "afr_Latn",
     "English" : "eng_Latn",
     "French" : "fra_Latn",
+    "Kannada" : "kan_Knda",
     "Malayalam" : "mal_Mlym",
     "Tamil" : "tam_Taml",
+    "Telugu" : "tel_Telu",
     "Zulu": "zul_Latn",
   }
   
