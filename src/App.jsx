@@ -13,9 +13,9 @@ function App() {
   const [progressItems, setProgressItems] = useState([])
 
   //translation default languages and inputs
-  const [input, setInput] = useState('This is a demo')
+  const [input, setInput] = useState('Thanks for visiting')
   const [sourceLanguage, setSourceLanguage] = useState('eng_Latn')
-  const [targetLanguage, setTargetLanguage] = useState('fra_Latn')
+  const [targetLanguage, setTargetLanguage] = useState('mal_Mlym')
   const [output, setOutput] = useState('')
 
   //console.log("progress-items",progressItems)
@@ -105,10 +105,11 @@ function App() {
       <div className='container'>
 
         <div className='language-container'>
-          <LanguageSelector type={"Source"} defaultLanguage={"eng_Latn"}
+          <LanguageSelector type={"Source"} defaultLanguage={sourceLanguage}
             onChange={e => setSourceLanguage(e.target.value)}
           ></LanguageSelector>
-          <LanguageSelector type={"Target"} defaultLanguage={"fra_Latn"}
+          <LanguageSelector type={"Target"} defaultLanguage={targetLanguage}
+            onChange={e=>setTargetLanguage(e.target.value)}
           ></LanguageSelector>
         </div>
 
